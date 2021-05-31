@@ -6,10 +6,10 @@ all: $(tags)
 
 build-%: %.Dockerfile
 	@echo '******************' Build Image $* '********************'
-	@docker build --no-cache -t vesoft-inc/toolset-build:$* -f $*.Dockerfile .
+	@docker build --no-cache -t vesoft/toolset-build:$* -f $*.Dockerfile .
 
 push-%: build-%
 	@echo '******************' Pushing Image $* '********************'
-	@docker push vesoft-inc/toolset-build:$*
+	@docker push vesoft/toolset-build:$*
 
 %: push-% ;
